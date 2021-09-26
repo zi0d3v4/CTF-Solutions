@@ -2,7 +2,7 @@
 
 Here I put my RE solutions and write-ups
 -----
-  Saudi Arabia National Cybersecurity CTF 2021
+  Saudi Arabia National Cybersecurity CTF 2021 - ILoveReverse
   ---
   I didn't participate in the CTF in person but I received below challenge from the CTf in the day following to the CTF's deadline (The challenge was more than this but I just recieved the RE part of it which is the final stage to get the flag). It is more of a Crypto than RE (it seems CTF organizers either do not understand what Reverse Engineering is all about or they do not know how to create real RE challenges rather than Crypto ROTx-like / pwn stuff). Enough of wasting E-Inks :d, Let's begin:
   

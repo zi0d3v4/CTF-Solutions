@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #Saudi Arabia National Cybersecurity CTF 2021 - ILoveReverse
 #python3 code 
 

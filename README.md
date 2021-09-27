@@ -26,7 +26,7 @@ Here I put my RE solutions and write-ups
 
   I will gather some strings now.
   
-<!-----
+`<!-----
 /lib64/ld-linux-x86-64.so.2
 puts
 printf
@@ -200,7 +200,7 @@ __cxa_finalize@@GLIBC_2.2.5
 .debug_abbrev
 .debug_line
 .debug_str
-!------>
+!------>`
 
 There are many interesting info. 
  [Need exactly one argument.

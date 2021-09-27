@@ -21,8 +21,7 @@ RE:  Saudi Arabia National Cybersecurity CTF 2021 - ILoveReverse
   ![image](https://user-images.githubusercontent.com/75640323/134824904-2085bff4-6cc3-4b97-ba7b-c2d17d458616.png)
 
   I will gather some strings now.
-  
-`<!-----
+--- ---  
 /lib64/ld-linux-x86-64.so.2
 puts
 printf
@@ -37,29 +36,29 @@ _ITM_registerTMCloneTable
 u/UH
 []A\A]A^A_
 Need exactly one argument.
-E`am]Ht`Ws
-____            ____
-_,',--.`-.      _,',--.`-.
+E\`am]Ht\`Ws
+\____            \____
+_,',--.\`-.      _,',--.\`-.
 <_ ( () )  >  ( <_ ( () )  >
-`-:__;,-'    \  `A:__:,-'
+\`-:__;,-'    \  \`A:__:,-'
 \ / \
 ((  )
 \-'
 \
 \
 (           )
-`-'"`-----'
+\`-'"\`-----'
 .-'''/.\ 
 (_.--'  |      <<< Your flag is: flag{%s}
 |  ==  |
 o-._ .--..--. _.-o
 |   ||   |
-;--|`--:
+;--|\`--:
 |. |   |
 |  ;_ .|
 |_____ |
 /|     '|\
-//`----'\\
+//\`----'\\
 ////|  |  \\
 /   |  |    \
 /|  |\
@@ -196,13 +195,14 @@ __cxa_finalize@@GLIBC_2.2.5
 .debug_abbrev
 .debug_line
 .debug_str
-!------>`
-
+--- ---
 There are many interesting info. 
- [Need exactly one argument.
- E`am]Ht`Ws
-<<< Your flag is: flag{%s}
-Enjoy_rev.cpp] 
+--- ---
+1) Need exactly one argument.
+2) E\`am]Ht\`Ws
+3) <<< Your flag is: flag{%s}
+4) Enjoy_rev.cpp
+--- ---
 these are the most interesting strings to me.
 I know we need exactly one argv, interesting string (some sort of key), flage is %s (maybe a format string vuln but cant happen within one arg!!) or maybe just a printf string format parameter %s (which means our input is inserted between flag{ and }) , and a cpp file.
 
@@ -216,27 +216,27 @@ I objdumped it but got no clues (sorry for my laziness), Same with GDB, I found 
 ![image](https://user-images.githubusercontent.com/75640323/134825736-8cfea1d4-18aa-41e8-979f-26a7eabf6815.png)
 
 a very simple easy flag wavering in the sky here.
+
 1) our interesting Key string of length of 10 bytes.
 2) check len(input)==len(key)==10 bytes/chars
-  2.1) Yes ==> check foreach (((char in key) + 6) - current position) == corresponding char in INPUT
-    2.1.1) No ==> Big No face
-    2.1.2) yes ==> Print("flag is: flag{OUR_INPUT}")  (squre#3)
-  2.2) No ==> Big No face
-  2.3) else (No input) ==> msg(Need an arg)
-  
+3) if #2 is 1 ==> check foreach (((char in key) + 6) - current position) == corresponding char in INPUT
+4) if #3 is 0 ==> Big No face
+5) if #3 is 1 ==> Print("flag is: flag{OUR_INPUT}")  (squre#3)
+6) if #2 is 0 ==> Big No face
+7) else if #2 is -1 (No input) ==> msg(Need an arg)
   
   So, after understanding the code flow let's build a decryptor (YES IT IS A STUPID CRYPTO rather than a RE challenge)
-  
+--- ---
   Givings:
-    key="E`am]Ht`Ws"
+    key="E\`am]Ht\`Ws"
     algorithm => key[i]+6-i = answer[i]
-    
+--- ---    
   Methodology:
   a) convert Ascii to Hex
   b) apply algorithm to each byte
   c) insert result in an array 
   d) print array as a string to be our input
-  
+--- ---  
   Code: Python3
   
   ![image](https://user-images.githubusercontent.com/75640323/134826215-f0a436ae-fa24-4923-b9f1-1c84768b7bb1.png)
@@ -245,6 +245,6 @@ a very simple easy flag wavering in the sky here.
   ![image](https://user-images.githubusercontent.com/75640323/134826271-242fd60c-bef1-4119-a9e2-104195313a8f.png)
 
 
-
-
+#By zi0d3v4
+#EOF
 

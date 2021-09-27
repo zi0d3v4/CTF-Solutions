@@ -221,7 +221,7 @@ a very simple easy flag wavering in the sky here.
 2) check len(input)==len(key)==10 bytes/chars
 3) if #2 is 1 ==> check foreach (((char in key) + 6) - current position) == corresponding char in INPUT
 4) if #3 is 0 ==> Big No face
-5) if #3 is 1 ==> Print("flag is: flag{OUR_INPUT}")  (squre#3)
+5) if #3 is 1 ==> Print("flag is: flag{OUR_INPUT}")  (box#3)
 6) if #2 is 0 ==> Big No face
 7) else if #2 is -1 (No input) ==> msg(Need an arg)
   
